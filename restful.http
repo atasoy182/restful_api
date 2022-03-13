@@ -13,8 +13,9 @@ Content-Type: application/json
 
 {
    "name" : "Berkay",
-   "yas" : 24,
-   "userName" : "atasoy"
+   "userName" : "atasoy182",
+   "email" : "atasoy182@gmail.com",
+   "password" : "123"
 }
 
 ###

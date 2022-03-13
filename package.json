@@ -13,6 +13,11 @@
   "dependencies": {
     "body-parser": "^1.19.2",
     "express": "^4.17.1",
-    "mongoose": "^5.9.13"
+    "lodash": "^4.17.21",
+    "mongoose": "^5.9.13",
+    "node": "^17.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21"
   }
 }

@@ -1,14 +1,24 @@
-const router = require('express').Router();
 
-router.get('/', (req,res)=>{
-    res.json({ mesaj : "Tüm kullanıcılar listelenecek"})
+const router = require('express').Router();
+const User = require('../models/userModel');
+router.get('/', async (req,res)=>{
+    const allUsers = await User.find({});
+    res.json(allUsers)
 })
 
 router.get('/:id', (req,res)=>{
     res.json({ mesaj : `${req.params.id} listelenecek`})
 })
 
-router.post('/', (req,res)=>{
+router.post('/', async (req,res)=>{
+    try{
+        const newUser = new User(req.body);
+        const response = await newUser.save();
+        res.send(response)
+
+    }catch(e){
+        console.log("Kullanıcı kaydedilirken hata oluştu")
+    }
     res.json(req.body)
 })
 
