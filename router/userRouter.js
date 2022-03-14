@@ -2,6 +2,7 @@
 
 const router = require("express").Router();
 const User = require("../models/userModel");
+const createHttpError = require("http-errors");
 
 router.get("/", async (req, res) => {
   const allUsers = await User.find({});
@@ -23,36 +24,37 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.patch("/:id", async (req, res) => {
-    try{
-        const response = await User.findByIdAndUpdate({_id : req.params.id}, req.body, {new : true, runValidators : true})
-        if(response){
-            return res.json(response)
-        }else{
-            return res.status(404).json({
-                message: "Kullanıcı bulunamadı"
-            })
-        }
-        
-    }catch(e){
-        console.log("Kullanıcı güncellenirken hata oluştu", e);
-        res.json({ message: "Kullanıcı güncellenirken hata oluştu" });
+router.patch("/:id", async (req, res, next) => {
+  delete req.body.password;
+  delete req.body.createdAt;
+  delete req.body.updatedAt;
+
+  try {
+    const response = await User.findByIdAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (response) {
+      return res.json(response);
+    } else {
+      throw new Error("Kullanıcı bulunamadı");
     }
+  } catch (e) {
+    next(e);
+  }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     const response = await User.findByIdAndDelete({ _id: req.params.id });
     if (response) {
       return res.json({ message: "Kullanıcı silindi" });
     } else {
-      return res.status(404).json({
-        message: "Kullanıcı bulunamadı",
-      });
+      throw createHttpError(404, "Kullanıcı Bulunamadı !");
     }
   } catch (e) {
-    console.log("Kullanıcı silinirken hata oluştu", e);
-    res.json({ message: "Kullanıcı silinirken hata oluştu" });
+    next(createHttpError(400, e));
   }
 });
 

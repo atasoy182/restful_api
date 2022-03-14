@@ -4,6 +4,9 @@ require('./db/dbConnection');
 // ROUTES
 const userRouter = require('./router/userRouter');
 
+//Middleware
+const errorMiddleware = require('./middleware/errorsMiddleware');
+
 const app = express();
 const bodyParser = require('body-parser');
 const req = require('express/lib/request');
@@ -19,6 +22,7 @@ app.get('/', (req,res) => {
     res.status(200).json({'mesaj' : "Hoş geldiniz"})
 })
 
+app.use(errorMiddleware)
 
 app.listen(3000, ()=>{
     console.log("Erişim sağlandı")

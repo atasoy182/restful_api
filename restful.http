@@ -19,14 +19,14 @@ Content-Type: application/json
 }
 
 ###
-PATCH {{BASE_URL}}/users/622e3561cee9be20dcc1717c
+PATCH {{BASE_URL}}/users/622e356acee9be20dcc1717d
 Content-Type: application/json
 
 {
    "name" : "Hasan3",
-   "userName" : "2"
+   "userName" : "4444"
 }
 
 ###
-DELETE  {{BASE_URL}}/users/622dcde166a7b51e98ae7f47
+DELETE  {{BASE_URL}}/users/622e356acee9be20dcc1717
 Content-Type: application/json
