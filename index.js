@@ -26,4 +26,4 @@ app.use(errorMiddleware)
 
 app.listen(3000, ()=>{
     console.log("Erişim sağlandı")
-}) 
+})

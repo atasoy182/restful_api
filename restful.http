@@ -12,19 +12,18 @@ POST {{BASE_URL}}/users
 Content-Type: application/json
 
 {
-   "name" : "Berkay3",
-   "userName" : "1",
-   "email" : "atasoy18324@gmail.com",
-   "password" : "12344"
+   "name" : "Berkay6",
+   "userName" : "x134",
+   "email" : "atasoy1234566@gmail.com",
+   "password" : "12"
 }
 
 ###
-PATCH {{BASE_URL}}/users/622e356acee9be20dcc1717d
+PATCH {{BASE_URL}}/users/622f9dad44a73a03c80881da
 Content-Type: application/json
 
 {
-   "name" : "Hasan3",
-   "userName" : "4444"
+   "password" : "sacaw"
 }
 
 ###
