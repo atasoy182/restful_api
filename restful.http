@@ -5,17 +5,27 @@
 GET {{BASE_URL}}/users
 
 ###
-GET {{BASE_URL}}/users/5
+GET {{BASE_URL}}/users/me
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM2ZjVkZDUxNmQ3NzBkZjhiNmE4ZDUiLCJlbWFpbCI6ImF0YXNveTE4MkBnbWFpbC5jb20iLCJpYXQiOjE2NDc3NzA4NDEsImV4cCI6MTY0Nzc3NDQ0MX0.ikXc0mdo1QIr-gQXqPyrBEL5KaefIE8661f68JgRd2Y"
 
 ###
 POST {{BASE_URL}}/users
 Content-Type: application/json
 
 {
-   "name" : "Berkay6",
-   "userName" : "x134",
-   "email" : "atasoy1234566@gmail.com",
-   "password" : "12"
+   "name" : "Berkay7",
+   "userName" : "x134567",
+   "email" : "atasoy182@gmail.com",
+   "password" : "123456"
+}
+
+###
+POST {{BASE_URL}}/users/login
+Content-Type: application/json
+
+{
+   "email" : "atasoy182@gmail.com",
+   "password" : "123456"
 }
 
 ###
@@ -23,8 +33,18 @@ PATCH {{BASE_URL}}/users/622f9dad44a73a03c80881da
 Content-Type: application/json
 
 {
-   "password" : "sacaw"
+   "password" : "123"
 }
+
+###
+PATCH {{BASE_URL}}/users/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjM2ZjVkZDUxNmQ3NzBkZjhiNmE4ZDUiLCJpYXQiOjE2NDc3NzMyMjEsImV4cCI6MTY0Nzc3NjgyMX0.SvJWJjPZR4heDaCaOlTPfoQujgzU84B7sMAbWqC_Jw0
+
+{
+   "userName" : "crazyBoy_55"
+}
+
 
 ###
 DELETE  {{BASE_URL}}/users/622e356acee9be20dcc1717

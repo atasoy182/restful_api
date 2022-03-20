@@ -6,7 +6,6 @@ function errorHandler(error, req, res, next){
         statusCode : error.statusCode || 400,
         message : error.message
     })
-
 }
 
 module.exports = errorHandler
